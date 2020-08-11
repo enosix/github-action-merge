@@ -1,0 +1,14 @@
+name: Merge
+description: Automatically merge master into PRs
+inputs:
+  token:
+    required: true
+    description: "Token to perform api calls"
+
+runs:
+  using: node12
+  main: dist/index.js
+
+branding:
+  icon: git-merge
+  color: green
