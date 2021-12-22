@@ -5,6 +5,12 @@ inputs:
     required: true
     description: "Token to perform api calls"
 
+outputs:
+  mergedPrNumbers:
+    description: "Multi-line list of PR numbers successfully merged"
+  conflictedPrNumbers:
+    description: "Multi-line list of PR numbers not merged due to conflicts"
+
 runs:
   using: node12
   main: dist/index.js
