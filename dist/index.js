@@ -273,8 +273,6 @@ async function main() {
       base: branchName,
     })
 
-    console.log(openedPrs)
-
     await Promise.all(
       openedPrs.data.map(async (pr) => {
         try {
@@ -290,8 +288,8 @@ async function main() {
         }
       })
     )
-    core.setOutput('mergedPrNumbers', mergedPrNumbers.map(x => x.toString()).concat('\n'))
-    core.setOutput('conflictedPrNumbers', conflictedPrNumbers.map(x => x.toString()).concat('\n'))
+    core.setOutput('mergedPrNumbers', mergedPrNumbers.map(x => x.toString()).join('\n'))
+    core.setOutput('conflictedPrNumbers', conflictedPrNumbers.map(x => x.toString()).join('\n'))
   } catch (e) {
     core.setFailed(e.message)
   }
