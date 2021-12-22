@@ -267,11 +267,14 @@ async function main() {
     let mergedPrNumbers = [];
     let conflictedPrNumbers = [];
 
-    const openedPrs = client.rest.pulls.list({
+    const openedPrs = await client.rest.pulls.list({
       ...github.context.repo,
       state: 'open',
       base: branchName,
     })
+
+    console.log(openedPrs)
+
     await Promise.all(
       openedPrs.data.map(async (pr) => {
         try {
